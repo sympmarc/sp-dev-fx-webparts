@@ -25,7 +25,8 @@ Sample web part showing the list of latest orders retrieved from a custom API se
 
 ![Web part showing the list of latest orders retrieved from a custom API secured with AAD](./assets/preview-orders.png)
 
-## Used SharePoint Framework Version 
+## Used SharePoint Framework Version
+ 
 ![drop](https://img.shields.io/badge/drop-GA-green.svg)
 
 ## Applies to
@@ -37,18 +38,13 @@ Sample web part showing the list of latest orders retrieved from a custom API se
 
 Solution|Author(s)
 --------|---------
-aad-api-spo-cookie|Waldek Mastykarz (MVP, Rencore, @waldekm)
+aad-api-spo-cookie|[Waldek Mastykarz](https://github.com/waldekmastykarz) (MVP, Rencore, @waldekm)
 
 ## Version history
 
 Version|Date|Comments
 -------|----|--------
 1.0.0|May 5, 2017|Initial release
-
-## Disclaimer
-**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
-
----
 
 ## Minimal Path to Awesome
 
@@ -227,4 +223,25 @@ This sample illustrates the following concepts on top of the SharePoint Framewor
 - manipulating DOM without using JavaScript libraries
 - chaining promises
 
-<img src="https://telemetry.sharepointpnp.com/sp-dev-fx-webparts/samples/aad-api-spo-cookie" />
+## Help
+
+We do not support samples, but this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
+
+If you're having issues building the solution, please run [spfx doctor](https://pnp.github.io/cli-microsoft365/cmd/spfx/spfx-doctor/) from within the solution folder to diagnose incompatibility issues with your environment.
+
+You can try looking at [issues related to this sample](https://github.com/pnp/sp-dev-fx-webparts/issues?q=label%3A"sample%3A%20aad-api-spo-cookie" ) to see if anybody else is having the same issues.
+
+You can also try looking at [discussions related to this sample](https://github.com/pnp/sp-dev-fx-webparts/discussions?discussions_q=aad-api-spo-cookie) and see what the community is saying.
+
+If you encounter any issues while using this sample, [create a new issue](https://github.com/pnp/sp-dev-fx-webparts/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected%2Csample%3A%20aad-api-spo-cookie&template=bug-report.yml&sample=aad-api-spo-cookie&authors=@waldekmastykarz&title=aad-api-spo-cookie%20-%20).
+
+For questions regarding this sample, [create a new question](https://github.com/pnp/sp-dev-fx-webparts/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Aquestion%2Csample%3A%20aad-api-spo-cookie&template=question.yml&sample=aad-api-spo-cookie&authors=@waldekmastykarz&title=aad-api-spo-cookie%20-%20).
+
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/sp-dev-fx-webparts/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Aenhancement%2Csample%3A%20aad-api-spo-cookie&template=question.yml&sample=aad-api-spo-cookie&authors=@waldekmastykarz&title=aad-api-spo-cookie%20-%20).
+
+## Disclaimer
+
+**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
+
+
+<img src="https://pnptelemetry.azurewebsites.net/sp-dev-fx-webparts/samples/aad-api-spo-cookie" />

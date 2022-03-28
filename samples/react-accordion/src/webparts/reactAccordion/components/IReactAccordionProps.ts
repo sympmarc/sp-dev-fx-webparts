@@ -8,5 +8,10 @@ export interface IReactAccordionProps {
   title: string;
   displayMode: DisplayMode;
   maxItemsPerPage: number;
+  enablePaging:boolean;
+  totalItems:number;
+  customSortField:string;
+  sortById:boolean;
+  sortByModified:boolean;
   updateProperty: (value: string) => void;
 }

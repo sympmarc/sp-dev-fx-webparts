@@ -1,23 +1,20 @@
+import { Version } from "@microsoft/sp-core-library";
+import { AadHttpClient, AadHttpClientConfiguration, HttpClientResponse, IAadHttpClientConfiguration, IAadHttpClientConfigurations, IAadHttpClientOptions } from "@microsoft/sp-http";
+import { SPPermission } from "@microsoft/sp-page-context";
+import { IPropertyPaneConfiguration, IPropertyPaneDropdownOption, PropertyPaneCheckbox, PropertyPaneDropdown, PropertyPaneSlider, PropertyPaneTextField, PropertyPaneToggle } from "@microsoft/sp-property-pane";
+import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
+import { sp } from "@pnp/sp";
+import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from '@pnp/spfx-property-controls/lib/PropertyFieldListPicker';
 import * as React from "react";
 import * as ReactDom from "react-dom";
-import { Version } from "@microsoft/sp-core-library";
-import { SPPermission } from "@microsoft/sp-page-context";
-import { PropertyFieldListPicker, PropertyFieldListPickerOrderBy } from '@pnp/spfx-property-controls/lib/PropertyFieldListPicker';
-import { PropertyFieldSelectedPermissions, IPropertyFieldSelectedPermissionsProps } from "./containers/PropertyFieldSelectedPermissions";
-import { sp } from "@pnp/sp";
-import * as strings from "spSecurityStrings";
-import SpSecurity from "./components/SpSecurity";
-import { ISpSecurityProps } from "./components/ISpSecurityProps";
 
+import { ISpSecurityProps } from "./components/ISpSecurityProps";
+import SpSecurity from "./components/SpSecurity";
+import { PropertyFieldSelectedPermissions } from "./containers/PropertyFieldSelectedPermissions";
 import { ISpSecurityWebPartProps } from "./ISpSecurityWebPartProps";
-import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
-import {
-  IPropertyPaneConfiguration, PropertyPaneCheckbox,
-  IPropertyPaneDropdownOption, PropertyPaneDropdown, PropertyPaneTextField,
-  PropertyPaneToggle, PropertyPaneSlider
-} from "@microsoft/sp-property-pane";
 
 export default class SpSecurityWebPart extends BaseClientSideWebPart<ISpSecurityWebPartProps> {
+  private aadHttpClient: AadHttpClient;
   public onInit(): Promise<void> {
     return super.onInit().then(_ => {
       sp.setup({
@@ -26,6 +23,13 @@ export default class SpSecurityWebPart extends BaseClientSideWebPart<ISpSecurity
         defaultCachingTimeoutSeconds: 30,
         globalCacheDisable: true // or true to disable caching in case of debugging/testing
       });
+    }).then(_ => {
+      this.context.aadHttpClientFactory.getClient(`https://graph.microsoft.com`)
+        .then((client: AadHttpClient) => {
+          // Search for the users with givenName, surname, or displayName equal to the searchFor value
+          this.aadHttpClient = client;
+        });
+
     });
   }
 
@@ -48,7 +52,7 @@ export default class SpSecurityWebPart extends BaseClientSideWebPart<ISpSecurity
       listTitleColumnWidth: this.properties.listTitleColumnWidth,
       users: this.properties.users,
       getPermissionTypes: this.getPermissionTypes,
-      aadHttpClient: null,//this.context.aadHttpClient,
+      aadHttpClient: this.aadHttpClient,
       domElement: this.domElement
 
     };

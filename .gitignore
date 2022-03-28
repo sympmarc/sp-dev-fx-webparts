@@ -33,3 +33,22 @@ obj
 *.scss.ts
 
 packages/
+
+
+# Include distributable workflow actions
+!.github/actions/**/dist
+
+
+# .CER Certificates
+*.cer
+# .PEM Certificates
+*.pem
+
+
+# Exclude build artifacts from samples
+samples/**/dist/
+samples/**/lib/
+samples/**/solution/
+samples/**/temp/
+samples/**/release/
+samples/**/node_modules

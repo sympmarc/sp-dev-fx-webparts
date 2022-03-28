@@ -17,6 +17,8 @@ extensions:
 
 This version works only for SharePoint Online. If you want a version for Sharepoint on-premises go to [react-script-editor-onprem](../react-script-editor-onprem).
 
+**It's important you read and understand the notes on [deployment](#deploy-to-non-script-sites--modern-team-sites).**
+
 ## Summary
 Coming from old classic SharePoint pages you might have existing script solutions you want to re-use on a modern page
 without having to repackage it as a new SharePoint Framework web part. This web part is similar to the classic
@@ -129,8 +131,32 @@ element.innerHTML = "Team: " + _teamsContexInfo.teamName + "<br\>Channel: " + _t
 
 ![Script Editor web part in Teams](./assets/modern-script-editor-wp-teams.gif)
 
-## Used SharePoint Framework Version
-![drop](https://img.shields.io/badge/drop-1.10.0-green.svg)
+### Deploy to non-script sites / modern team sites
+By default this web part is not allowed on no-script sites, as it allows execution of arbitrary script. This is by design as from a security and governance perspective you might not want arbitrary script added to your pages. This is typically something you want control over.
+
+If you however want to allow the web part for non-script sites like Office 365 Group modern team sites you have to edit `ScriptEditorWebPart.manifest.json` with the following change:
+```
+"requiresCustomScript": false
+```
+
+### Deploy tenant wide
+By default you have to install this web part per site collection where you want it available. If you want it enabled by default on all sites you have to edit `package-solution.json` with the following change:
+```
+"skipFeatureDeployment": true
+```
+
+In order to make it available to absolutely all sites you need apply the _Deploy to non-script sites / modern team site_ change as well.
+
+## Compatibility
+
+![SPFx 1.10](https://img.shields.io/badge/SPFx-1.10.0-green.svg) 
+![Node.js v10 | v8](https://img.shields.io/badge/Node.js-v10%20%7C%20v8-green.svg) 
+![Compatible with SharePoint Online](https://img.shields.io/badge/SharePoint%20Online-Compatible-green.svg)
+![Does not work with SharePoint 2019](https://img.shields.io/badge/SharePoint%20Server%202019-Incompatible-red.svg)
+![Does not work with SharePoint 2016 (Feature Pack 2)](https://img.shields.io/badge/SharePoint%20Server%202016%20(Feature%20Pack%202)-Incompatible-red.svg "SharePoint Server 2016 Feature Pack 2 requires SPFx 1.1")
+![Local Workbench Compatible](https://img.shields.io/badge/Local%20Workbench-Compatible-green.svg)
+![Hosted Workbench Compatible](https://img.shields.io/badge/Hosted%20Workbench-Compatible-green.svg)
+![Compatible with Remote Containers](https://img.shields.io/badge/Remote%20Containers-Compatible-green.svg)
 
 ## Applies to
 
@@ -141,7 +167,7 @@ element.innerHTML = "Team: " + _teamsContexInfo.teamName + "<br\>Channel: " + _t
 
 Solution|Author(s)
 --------|---------
-react-script-editor | Mikael Svenson ([@mikaelsvenson](http://www.twitter.com/mikaelsvenson), [techmikael.com](techmikael.com))
+react-script-editor | [Mikael Svenson](https://github.com/wobba) ([@mikaelsvenson](http://www.twitter.com/mikaelsvenson), [techmikael.com](techmikael.com))
 
 ## Version history
 
@@ -149,7 +175,7 @@ Version|Date|Comments
 -------|----|--------
 1.0|March 10th, 2017|Initial release
 1.0.0.1|August 8th, 2017|Updated SPFx version and CSS loading
-1.0.0.2|October 4th, 2017|Updated SPFx version, bundle Office UI Fabric and CSS in webpart
+1.0.0.2|October 4th, 2017|Updated SPFx version, bundle Office UI Fabric and CSS in web part
 1.0.0.3|January 10th, 2018|Updated SPFx version, added remove padding property and refactoring
 1.0.0.4|February 14th, 2018|Added title property for edit mode and documentation for enabling the web part on Group sites / tenant wide
 1.0.0.5|March 8th, 2018|Added support for loading scripts which are AMD/UMD modules. Added support for classic _spPageContextInfo. Refactoring.
@@ -164,11 +190,7 @@ Version|Date|Comments
 1.0.0.14|Oct 13th, 2019|Added resolve to fix pnpm issue. Updated author info.
 1.0.0.15|Mar 16th, 2020|Upgrade to SPFx v1.10.0. Add support for Teams tab. Renamed package file.
 1.0.0.16|April 1st, 2020|Improved how script tags are handled and cleaned up on smart page navigation.
-
-## Disclaimer
-**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
-
----
+1.0.17.0|January 29th, 2021|Changed versioning to 3 parts. Updated npm packages, restructured documentation, minor change to webpack analyzer setup.
 
 ## Minimal Path to Awesome
 ### Local testing
@@ -179,29 +201,12 @@ Version|Date|Comments
   - `gulp serve`
 
 ### Deploy
-* gulp clean
-* gulp bundle --ship
-* gulp package-solution --ship
-* Upload .sppkg file from sharepoint\solution to your tenant App Catalog
+* `gulp clean`
+* `gulp bundle --ship`
+* `gulp package-solution --ship`
+* Upload `.sppkg` file from `sharepoint\solution` to your tenant App Catalog
 	* E.g.: https://&lt;tenant&gt;.sharepoint.com/sites/AppCatalog/AppCatalog
 * Add the web part to a site collection, and test it on a page
-
-### Deploy to non-script sites / modern team sites
-By default this web part is not allowed on no-script sites, as it allows execution of arbitrary script. This is by design as from a security and governance perspective you might not want arbitrary script added to your pages. This is typically something you want control over.
-
-If you however want to allow the web part for non-script sites like Office 365 Group modern team sites you have to edit `ScriptEditorWebPart.manifest.json` with the following change:
-```
-"requiresCustomScript": false
-```
-
-### Deploy tenant wide
-By default you have to install this web part per site collection where you want it availble. If you want it enabled by default on all sites you have to edit `package-solution.json` with the following change:
-```
-"skipFeatureDeployment": true
-```
-
-In order to make it available to absolutely all sites you need apply the _Deploy to non-script sites / modern team site_ change as well.
-
 ## Features
 This web part illustrates the following concepts on top of the SharePoint Framework:
 
@@ -209,4 +214,26 @@ This web part illustrates the following concepts on top of the SharePoint Framew
 - Office UI Fabric
 - React
 
-<img src="https://telemetry.sharepointpnp.com/sp-dev-fx-webparts/samples/react-script-editor" />
+
+## Help
+
+We do not support samples, but we this community is always willing to help, and we want to improve these samples. We use GitHub to track issues, which makes it easy for  community members to volunteer their time and help resolve issues.
+
+If you're having issues building the solution, please run [spfx doctor](https://pnp.github.io/cli-microsoft365/cmd/spfx/spfx-doctor/) from within the solution folder to diagnose incompatibility issues with your environment.
+
+You can try looking at [issues related to this sample](https://github.com/pnp/sp-dev-fx-webparts/issues?q=label%3A%22sample%3A%20react-script-editor") to see if anybody else is having the same issues.
+
+You can also try looking at [discussions related to this sample](https://github.com/pnp/sp-dev-fx-webparts/discussions?discussions_q=react-script-editor) and see what the community is saying.
+
+If you encounter any issues while using this sample, [create a new issue](https://github.com/pnp/sp-dev-fx-webparts/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Abug-suspected%2Csample%3A%20react-script-editor&template=bug-report.yml&sample=react-script-editor&authors=@wobba&title=react-script-editor%20-%20).
+
+For questions regarding this sample, [create a new question](https://github.com/pnp/sp-dev-fx-webparts/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Aquestion%2Csample%3A%20react-script-editor&template=question.yml&sample=react-script-editor&authors=@wobba&title=react-script-editor%20-%20).
+
+Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/sp-dev-fx-webparts/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Aenhancement%2Csample%3A%20react-script-editor&template=question.yml&sample=react-script-editor&authors=@wobba&title=react-script-editor%20-%20).
+
+## Disclaimer
+
+**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
+
+
+<img src="https://pnptelemetry.azurewebsites.net/sp-dev-fx-webparts/samples/react-script-editor" />

@@ -1,0 +1,45 @@
+{
+  "name": "list-search-webpart",
+  "version": "1.0.0",
+  "private": true,
+  "main": "lib/index.js",
+  "engines": "undefined",
+  "scripts": {
+    "build": "gulp bundle",
+    "clean": "gulp clean",
+    "test": "gulp test",
+    "alldebug": "gulp clean && gulp build && gulp bundle && gulp serve",
+    "allpackage": "gulp clean && gulp build --ship && gulp bundle --ship && gulp package-solution --ship",
+    "publish-please": "publish-please",
+    "prepublishOnly": "publish-please guard",
+    "serve": "gulp bundle --custom-serve --max_old_space_size=4096 && fast-serve"
+  },
+  "dependencies": {
+    "@microsoft/sp-core-library": "1.13.1",
+    "@microsoft/sp-lodash-subset": "1.13.1",
+    "@microsoft/sp-office-ui-fabric-core": "1.13.1",
+    "@microsoft/sp-property-pane": "1.13.1",
+    "@microsoft/sp-webpart-base": "1.13.1",
+    "@pnp/graph": "2.4.0",
+    "@pnp/sp": "2.0.8",
+    "@pnp/spfx-controls-react": "2.4.0",
+    "@pnp/spfx-property-controls": "3.3.0",
+    "office-ui-fabric-react": "7.174.1",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-js-pagination": "3.0.3",
+    "react-xml-parser": "1.1.6"
+  },
+  "devDependencies": {
+    "@microsoft/rush-stack-compiler-3.9": "0.4.47",
+    "@microsoft/sp-build-web": "1.13.1",
+    "@microsoft/sp-module-interfaces": "1.13.1",
+    "@microsoft/sp-tslint-rules": "1.13.1",
+    "@types/react": "16.9.51",
+    "@types/react-dom": "16.9.8",
+    "@types/webpack-env": "1.13.1",
+    "ajv": "~6.12.3",
+    "gulp": "4.0.2",
+    "spfx-fast-serve-helpers": "~1.13.0"
+  }
+}

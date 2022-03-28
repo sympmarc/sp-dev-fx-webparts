@@ -30,7 +30,8 @@ export default class ReactAccordion extends React.Component<IReactAccordionProps
       items: [],
       listItems: [],
       isLoading: false,
-      loaderMessage: ''
+      loaderMessage: '',
+      error: ''
     };
 
     if (!this.listNotConfigured(this.props)) {
@@ -73,7 +74,24 @@ export default class ReactAccordion extends React.Component<IReactAccordionProps
   }
 
   private readItems(): void {
-    let restAPI = this.props.siteUrl + `/_api/web/Lists/GetByTitle('${this.props.listName}')/items?$select=Title,Description`;
+
+    const orders = [];
+    if (this.props.customSortField) {
+      orders.push(this.props.customSortField);
+    }
+    if (this.props.sortById) {
+      orders.push('ID');
+    }
+    if (this.props.sortByModified) {
+      orders.push('Modified');
+    }
+
+    const selects = `select=Title,Description${this.props.customSortField ? `,${this.props.customSortField}` : ''}`;
+
+    const restAPI = this.props.siteUrl + `/_api/web/Lists/GetByTitle('${this.props.listName}')/items?` +
+      `$${selects}` +
+      `${orders.length > 0 ? '&$orderby=' + orders.join(',') : ''}` +
+      `&$top=${this.props.totalItems}`;
 
     this.props.spHttpClient.get(restAPI, SPHttpClient.configurations.v1, {
       headers: {
@@ -85,6 +103,11 @@ export default class ReactAccordion extends React.Component<IReactAccordionProps
         return response.json();
       })
       .then((response: { value: IAccordionListItem[] }): void => {
+        if (!response.value) {
+          this.setState({
+            error: `No items were found, check the list Title and/or custom sort order field internal name`
+          });
+        }
 
         let listItemsCollection = [...response.value];
 
@@ -94,14 +117,16 @@ export default class ReactAccordion extends React.Component<IReactAccordionProps
           items: response.value,
           listItems: response.value,
           isLoading: false,
-          loaderMessage: ""
+          loaderMessage: '',
+          error: ''
         });
       }, (error: any): void => {
         this.setState({
           status: 'Loading all items failed with error: ' + error,
           pagedItems: [],
           isLoading: false,
-          loaderMessage: ""
+          loaderMessage: "",
+          error: `Loading failed. Validate that you have entered a valid List Title and/or internal field name for the custom sort order ${error}`
         });
       });
 
@@ -109,6 +134,7 @@ export default class ReactAccordion extends React.Component<IReactAccordionProps
 
   public render(): React.ReactElement<IReactAccordionProps> {
     let displayLoader;
+    let errorMessage;
     let faqTitle;
     let { items } = this.state;
     let pageCountDivisor: number = this.props.maxItemsPerPage;
@@ -148,12 +174,19 @@ export default class ReactAccordion extends React.Component<IReactAccordionProps
       displayLoader = (null);
     }
 
-    if (items.length > 0) {
-      pageCount = Math.ceil(items.length / pageCountDivisor);
+    if (this.props.enablePaging) {
+      if (items.length > 0) {
+        pageCount = Math.ceil(items.length / pageCountDivisor);
+      }
+      for (let i = 0; i < pageCount; i++) {
+        pageButtons.push(<PrimaryButton onClick={() => { _pagedButtonClick(i + 1, items); }}> {i + 1} </PrimaryButton>);
+      }
     }
-    for (let i = 0; i < pageCount; i++) {
-      pageButtons.push(<PrimaryButton onClick={() => { _pagedButtonClick(i + 1, items); }}> {i + 1} </PrimaryButton>);
+
+    if (this.state.error) {
+      errorMessage = <div>{this.state.error}</div>;
     }
+
     return (
       <div className={styles.reactAccordion}>
         <div className={styles.container}>
@@ -172,7 +205,7 @@ export default class ReactAccordion extends React.Component<IReactAccordionProps
           <div className={`ms-Grid-row`}>
             <div className='ms-Grid-col ms-u-lg12'>
               {this.state.status}
-              <Accordion accordion={false}>
+              <Accordion>
                 {pagedItems}
               </Accordion>
             </div>
@@ -183,6 +216,7 @@ export default class ReactAccordion extends React.Component<IReactAccordionProps
             </div>
           </div>
         </div>
+        {errorMessage}
       </div>
     );
   }

@@ -17,10 +17,10 @@ extensions:
   - AngularJS
   createdDate: 2/16/2017 12:00:00 AM
 ---
-Composant graphique WebPart Angular MS Graph créé avec Angular v1.x
+Composant graphique Web Part Angular MS Graph créé avec Angular v1.x
 
 ## Résumé
-Il s’agit d’un exemple de composant WebPart Angular MS Graph qui se connecte à Microsoft Graph et extrait des informations SharePoint de votre client.
+Il s’agit d’un exemple de composant Web Part Angular MS Graph qui se connecte à Microsoft Graph et extrait des informations SharePoint de votre client.
 Il extrait tout d’abord la collection de sites racine (actuellement limitée par Microsoft Graph),
 puis affiche toutes les listes associées au site, suivies de tous les éléments dans la liste.
 
@@ -94,4 +94,4 @@ Version|Date|Commentaires
 1. Remplacez les valeurs d’espace réservé **aad**et **redirect_uri** par l’ID d’application et
 redirigez l’URL de votre application Azure inscrit dans le fichier GraphHelper.ts sous src-> angularMsGraph-> GraphHelper.ts
 
-<img src="https://telemetry.sharepointpnp.com/sp-dev-fx-webparts/samples/angular-msgraph" /> 
+<img src="https://pnptelemetry.azurewebsites.net/sp-dev-fx-webparts/samples/angular-msgraph" /> 

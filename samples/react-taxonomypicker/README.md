@@ -21,8 +21,16 @@ A Taxonomy Picker control built with [React](https://facebook.github.io/react) b
 ![React-Taxonomy-Picker-gif](./assets/react-taxonomy-picker-spfx.gif)
 
 
-## Used SharePoint Framework Version 
-![drop](https://img.shields.io/badge/drop-GA-green.svg)
+## Compatibility
+
+![SPFx 1.1.0](https://img.shields.io/badge/SPFx-1.1.0-green.svg)
+![Node.js v6](https://img.shields.io/badge/Node.js-v6-green.svg) 
+![Compatible with SharePoint Online](https://img.shields.io/badge/SharePoint%20Online-Compatible-green.svg)
+![Compatible SharePoint 2019](https://img.shields.io/badge/SharePoint%20Server%202019-Compatible-green.svg)
+![Compatible with SharePoint 2016 (Feature Pack 2)](https://img.shields.io/badge/SharePoint%20Server%202016%20(Feature%20Pack%202)-Compatible-green.svg)
+![Local Workbench Compatible](https://img.shields.io/badge/Local%20Workbench-Compatible-green.svg)
+![Hosted Workbench Compatible](https://img.shields.io/badge/Hosted%20Workbench-Compatible-green.svg)
+![Compatible with Remote Containers](https://img.shields.io/badge/Remote%20Containers-Compatible-green.svg)
 
 
 ## Applies to
@@ -41,16 +49,14 @@ Version|Date|Comments
 -------|----|--------
 1.0|March 14, 2017|Initial release
 
-## Disclaimer
-**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
-
----
 
 ## Minimal Path to Awesome
 - clone this repo
 - `$ npm i`
 - `$ gulp trust-dev-cert`
 - `$ gulp serve `
+
+>  This sample can also be opened with [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview). Visit https://aka.ms/spfx-devcontainer for further instructions.
 
 #### Local Mode
 A browser in local mode (localhost) will be opened.
@@ -97,7 +103,7 @@ PropertyPaneTaxonomyPicker("Language", {
 ```
 
 ## Features
-- Use [React](https://facebook.github.io/react) for using [react-taxonomypicker](https://github.com/jquintozamora/react-taxonomypicker) control inside a custom property pane (it can be used in the webpart itself too).
+- Use [React](https://facebook.github.io/react) for using [react-taxonomypicker](https://github.com/jquintozamora/react-taxonomypicker) control inside a custom property pane (it can be used in the web part itself too).
 - Use [TypeScript](https://www.typescriptlang.org) to create the custom property pane control containing the taxonomy picker control.
 - **Reacting to web part property changes**
 - Loading data for use in **custom property pane controls asynchronously** without blocking the web part
@@ -107,7 +113,7 @@ PropertyPaneTaxonomyPicker("Language", {
   - Async mode is used for large Term Sets and it **doesn't load any data initially**, but it loads the Terms upon user input in batches of 10 items.
   - Sync / Async mode configurable via **termSetCountMaxSwapToAsync** property
     - The control will fetch the number of terms and decide which mode to use depends on termSetCountMaxSwapToAsync value.
-- It Uses and depends on **SP.Taxonomy.js** (the webpart uses a wrapper to load all the SP.*.js dependencies)
+- It Uses and depends on **SP.Taxonomy.js** (the web part uses a wrapper to load all the SP.*.js dependencies)
 - Use **Promise** (polyfill it if needed IE)
 - **onPickerChange** event handler exposed
 - [react-select](https://github.com/JedWatson/react-select) properties exposed (extends them)
@@ -120,6 +126,9 @@ PropertyPaneTaxonomyPicker("Language", {
   - Consume it from [TypeScript project](https://github.com/jquintozamora/react-taxonomypicker-consume-typescript)
 - **SharePoint Framework Web Part (SPFx)**
 
+## Disclaimer
 
-<img src="https://telemetry.sharepointpnp.com/sp-dev-fx-webparts/samples/react-taxonomypicker" />
+**THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
+
+<img src="https://pnptelemetry.azurewebsites.net/sp-dev-fx-webparts/samples/react-taxonomypicker" />
 

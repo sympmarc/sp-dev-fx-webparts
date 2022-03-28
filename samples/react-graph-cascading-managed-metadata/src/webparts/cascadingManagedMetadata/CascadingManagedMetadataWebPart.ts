@@ -1,12 +1,9 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 import { Version, DisplayMode } from '@microsoft/sp-core-library';
-import {
-  BaseClientSideWebPart,
-  IPropertyPaneConfiguration,
-  PropertyPaneTextField
-} from '@microsoft/sp-webpart-base';
-
+import { BaseClientSideWebPart } from "@microsoft/sp-webpart-base";
+import { IPropertyPaneConfiguration } from "@microsoft/sp-property-pane";
+import { PropertyFieldGuid } from '@pnp/spfx-property-controls/lib/PropertyFieldGuid';
 import * as strings from 'CascadingManagedMetadataWebPartStrings';
 import CascadingManagedMetadata from './components/CascadingManagedMetadata';
 import { MSGraph } from './services/MSGraph';
@@ -19,11 +16,14 @@ export default class CascadingManagedMetadataWebPart extends BaseClientSideWebPa
 
   private _placeholder = null;
 
-  public async render(): Promise<void> {
+  protected async onInit(): Promise<void> {
     await MSGraph.Init(this.context);
+    return super.onInit();
+  }
+
+  public async render(): Promise<void> {
     let renderElement = null;
-    //TODO: Use function to check if GUID?
-    if (this.properties.termSetId && this.properties.termSetId.length == 36) {
+    if (this.properties.termSetId) {
       renderElement = React.createElement(
         CascadingManagedMetadata,
         {
@@ -69,6 +69,7 @@ export default class CascadingManagedMetadataWebPart extends BaseClientSideWebPa
     return Version.parse('1.0');
   }
 
+
   protected getPropertyPaneConfiguration(): IPropertyPaneConfiguration {
     return {
       pages: [
@@ -80,8 +81,11 @@ export default class CascadingManagedMetadataWebPart extends BaseClientSideWebPa
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('termSetId', {
-                  label: strings.TermSetIdFieldLabel
+                PropertyFieldGuid('termSetId', {
+                  key: 'termSetId',
+                  label: strings.TermSetIdFieldLabel,
+                  value: this.properties.termSetId,
+                  errorMessage: "Term set Id must be a valid GUID"
                 })
               ]
             }
