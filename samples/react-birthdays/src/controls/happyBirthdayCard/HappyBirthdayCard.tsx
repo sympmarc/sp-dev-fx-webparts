@@ -2,9 +2,8 @@ import * as React from 'react';
 import styles from './HappyBirthdayCard.module.scss';
 import { IHappyBirthdayCardProps } from './IHappyBirthdayCardProps';
 import { IHappyBirthdayCardPState } from './IHappyBirthdayCardState';
-import { escape } from '@microsoft/sp-lodash-subset';
-import { IPersonaSharedProps, Persona, PersonaSize, IPersonaProps, PersonaPresence } from 'office-ui-fabric-react/lib/Persona';
-import { Image, IImageProps, ImageFit } from 'office-ui-fabric-react/lib/Image';
+import { IPersonaSharedProps, Persona, PersonaSize, IPersonaProps } from 'office-ui-fabric-react/lib/Persona';
+import { Image, ImageFit } from 'office-ui-fabric-react/lib/Image';
 import { Label } from 'office-ui-fabric-react/lib/Label';
 import * as strings from 'ControlStrings';
 import { Icon } from 'office-ui-fabric-react/lib/Icon';
@@ -17,7 +16,13 @@ const img: string = require('../../../assets/cof11.png');
 const IMG_WIDTH: number = 200;
 const IMG_HEIGTH: number = 190;
 
-const imageTemplate: { imageUrl: string }[] = [{
+interface IImageTemplate {
+  [key: string]: {
+    imageUrl: string
+  }
+}
+
+const imageTemplate: IImageTemplate[] = [{
   imageUrl: require('.../../../assets/cof.png')
 },
 {
@@ -109,16 +114,16 @@ export class HappyBirthdayCard extends React.Component<IHappyBirthdayCardProps, 
   }
   // Render
   public render(): React.ReactElement<IHappyBirthdayCardProps> {
-    
+
     this._birthdayMsg = this.state.isBirthdayToday ? (this.props.anniversary? strings.HappyAnniversaryMsg: strings.HappyBirthdayMsg) : (this.props.anniversary? strings.NextAnniversaryMsg: strings.NextBirthdayMsg);
     return (
-      <div className={styles.happyBirdthay}>
+      <div className={styles.happyBirthday}>
         <div className={styles.documentCardWrapper}>
           <div className={styles.documentCard}>
             <Image
-
               imageFit={ImageFit.cover}
-              src={imageTemplate[this.props.imageTemplate].imageUrl}
+              // @ts-ignore: Object is possibly 'null'.
+              src={imageTemplate[this.props.imageTemplate]?.imageUrl}
               width={IMG_WIDTH}
               height={IMG_HEIGTH}
             />

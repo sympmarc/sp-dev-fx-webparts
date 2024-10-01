@@ -20,13 +20,13 @@ export interface IPnPjsExampleWebPartProps {
 
 export default class PnPjsExampleWebPart extends BaseClientSideWebPart<IPnPjsExampleWebPartProps> {
 
-  private _isDarkTheme: boolean = false;
-  private _environmentMessage: string = '';
+  private _isDarkTheme = false;
+  private _environmentMessage = '';
 
   protected async onInit(): Promise<void> {
     this._environmentMessage = this._getEnvironmentMessage();
 
-    super.onInit();
+    await super.onInit();
 
     //Initialize our _sp object that we can then use in other packages without having to pass around the context.
     //  Check out pnpjsConfig.ts for an example of a project setup file.
@@ -49,7 +49,7 @@ export default class PnPjsExampleWebPart extends BaseClientSideWebPart<IPnPjsExa
   }
 
   private _getEnvironmentMessage(): string {
-    if (!!this.context.sdks.microsoftTeams) { // running in Teams
+    if (!this.context.sdks.microsoftTeams) { // running in Teams
       return this.context.isServedFromLocalhost ? strings.AppLocalEnvironmentTeams : strings.AppTeamsTabEnvironment;
     }
 

@@ -18,7 +18,7 @@
     "@pnp/sp": "^2.0.2",
     "@pnp/spfx-controls-react": "^1.16.0",
     "@pnp/spfx-property-controls": "^1.16.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "office-ui-fabric-react": "7.174.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@microsoft/rush-stack-compiler-3.9": "0.4.47",
-    "@microsoft/sp-build-web": "1.13.1",
+    "@microsoft/sp-build-web": "1.18.0",
     "@microsoft/sp-module-interfaces": "1.13.1",
     "@microsoft/sp-tslint-rules": "1.13.1",
     "@types/react": "16.9.51",

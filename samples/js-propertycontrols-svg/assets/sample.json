@@ -2,14 +2,14 @@
   {
     "name": "pnp-sp-dev-spfx-web-parts-js-propertycontrols-svg",
     "source": "pnp",
-    "title": "JS Property Controls SVG",
+    "title": "JS Property Controls SVG Web Part",
     "shortDescription": "An SPFx web part that displays a Scalable Vector Graphics (SVG) image using properties to customize how it is rendered. The web part utilizes the PnP SPFx Property Controls package (specifially the SpinButton and ColorPicker) to set these properties.",
     "url": "https://github.com/pnp/sp-dev-fx-webparts/tree/main/samples/js-propertycontrols-svg",
     "longDescription": [
       "An SPFx web part that displays a Scalable Vector Graphics (SVG) image using properties to customize how it is rendered. The web part utilizes the PnP SPFx Property Controls package (specifially the SpinButton and ColorPicker) to set these properties."
     ],
     "creationDateTime": "2017-11-12",
-    "updateDateTime": "2021-12-30",
+    "updateDateTime": "2022-04-07",
     "products": [
       "SharePoint"
     ],
@@ -20,7 +20,7 @@
       },
       {
         "key": "SPFX-VERSION",
-        "value": "1.3.4"
+        "value": "1.13.0"
       },
       {
         "key": "PNPCONTROLS",
@@ -54,7 +54,7 @@
       {
         "name": "Build your first SharePoint client-side web part",
         "description": "Client-side web parts are client-side components that run in the context of a SharePoint page. Client-side web parts can be deployed to SharePoint environments that support the SharePoint Framework. You can also use modern JavaScript web frameworks, tools, and libraries to build them.",
-        "url": "https://docs.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/get-started/build-a-hello-world-web-part"
+        "url": "https://learn.microsoft.com/sharepoint/dev/spfx/web-parts/get-started/build-a-hello-world-web-part"
       }
     ]
   }

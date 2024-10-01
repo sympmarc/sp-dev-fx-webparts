@@ -26,8 +26,13 @@ Alternatively, you can add the output files for the web part to a custom SPFx pr
 
 ## Compatibility
 
-![SPFx 1.11](https://img.shields.io/badge/SPFx-1.11.0-green.svg) 
-![Node.js v10](https://img.shields.io/badge/Node.js-v10-green.svg) 
+| :warning: Important          |
+|:---------------------------|
+| Every SPFx version is only compatible with specific version(s) of Node.js. In order to be able to build this sample, please ensure that the version of Node on your workstation matches one of the versions listed in this section. This sample will not work on a different version of Node.|
+|Refer to <https://aka.ms/spfx-matrix> for more information on SPFx compatibility.   |
+
+![SPFx 1.18.2](https://img.shields.io/badge/SPFx-1.18.2-green.svg) 
+![Node.js v18](https://img.shields.io/badge/Node.js-v18-green.svg) 
 ![Compatible with SharePoint Online](https://img.shields.io/badge/SharePoint%20Online-Compatible-green.svg)
 ![Does not work with SharePoint 2019](https://img.shields.io/badge/SharePoint%202019-Not%20compatible-red.svg)
 ![Does not work with SharePoint 2016 (Feature Pack 2)](https://img.shields.io/badge/SharePoint%202016%20(Feature%20Pack%202)-Not%20compatible-red.svg)
@@ -37,18 +42,16 @@ Alternatively, you can add the output files for the web part to a custom SPFx pr
 
 ## Applies to
 
-* [SharePoint Framework](https://docs.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview)
+* [SharePoint Framework](https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview)
 
 ## Prerequisites
 
 * Office 365 subscription with SharePoint Online license
-* SharePoint Framework [development environment](https://docs.microsoft.com/sharepoint/dev/spfx/set-up-your-development-environment) already set up.
+* SharePoint Framework [development environment](https://learn.microsoft.com/sharepoint/dev/spfx/set-up-your-development-environment) already set up.
 
-## Solution
+## Contributors
 
-Solution|Author(s)
---------|---------
-workbench-customizer|[Joel Rodrigues](https://github.com/joelfmrodrigues)
+* [Joel Rodrigues](https://github.com/joelfmrodrigues)
 
 ## Version history
 
@@ -60,6 +63,7 @@ Version|Date|Comments
 1.3|July 07, 2020|Simplified web part
 1.4|July 28, 2020|Update styles to minimise toolbar overlap
 1.5|July 30, 2020|Update styles to improve full-width mode
+1.6|December 21, 2023|Update to SPFx 1.18.2 and fix issue with browser crashing
 
 ## Minimal Path to Awesome
 
@@ -68,7 +72,7 @@ Version|Date|Comments
   * `npm install`
   * `gulp serve`
 
->  This sample can also be opened with [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview). Visit https://aka.ms/spfx-devcontainer for further instructions.
+> This sample can also be opened with [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview). Visit https://aka.ms/spfx-devcontainer for further instructions.
 
 ## Video
 
@@ -96,4 +100,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
 
-<img src="https://pnptelemetry.azurewebsites.net/sp-dev-fx-webparts/samples/js-workbench-customizer" />
+<img src="https://m365-visitor-stats.azurewebsites.net/sp-dev-fx-webparts/samples/js-workbench-customizer" />

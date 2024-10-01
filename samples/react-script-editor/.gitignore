@@ -30,3 +30,8 @@ obj
 
 # Styles Generated Code
 *.scss.ts
+
+# Release folder
+release
+
+.heft

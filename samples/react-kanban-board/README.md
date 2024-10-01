@@ -1,19 +1,3 @@
----
-page_type: sample
-products:
-- office-sp
-languages:
-- javascript
-- typescript
-extensions:
-  contentType: samples
-  technologies:
-  - SharePoint Framework
-  platforms:
-  - React
-  createdDate: 7/17/2019 12:00:00 AM
----
-
 # Kanban Board
 
 ## Summary
@@ -24,11 +8,20 @@ The web part uses the default columns of the SharePoint Tasks list for showing t
 
 ![picture of the web part in action](assets/kanbanofficeUI.gif)
 
+![Kanban Board Settings: bucket Layout](assets/kanbanimg1.png)
+![Kanban Board View Items](assets/kanbanimg2.png)
+![Kanban Board Settings: list selection and status column order as bucket](assets/kanbanimg3.png)
+
 
 ## Compatibility
 
-![SPFx 1.13.0](https://img.shields.io/badge/SPFx-1.13.0-green.svg)
-![Node.js v14 | v12](https://img.shields.io/badge/Node.js-v14%20%7C%20v12-green.svg) 
+| :warning: Important          |
+|:---------------------------|
+| Every SPFx version is only compatible with specific version(s) of Node.js. In order to be able to build this sample, please ensure that the version of Node on your workstation matches one of the versions listed in this section. This sample will not work on a different version of Node.|
+|Refer to <https://aka.ms/spfx-matrix> for more information on SPFx compatibility.   |
+
+![SPFx 1.19.0](https://img.shields.io/badge/SPFx-1.19.0-green.svg)
+![Node.js v18 ](https://img.shields.io/badge/Node.js-v18-green.svg) 
 ![Compatible with SharePoint Online](https://img.shields.io/badge/SharePoint%20Online-Compatible-green.svg)
 ![Does not work with SharePoint 2019](https://img.shields.io/badge/SharePoint%20Server%202019-Incompatible-red.svg "SharePoint Server 2019 requires SPFx 1.4.1 or lower")
 ![Does not work with SharePoint 2016 (Feature Pack 2)](https://img.shields.io/badge/SharePoint%20Server%202016%20(Feature%20Pack%202)-Incompatible-red.svg "SharePoint Server 2016 Feature Pack 2 requires SPFx 1.1")
@@ -39,12 +32,13 @@ The web part uses the default columns of the SharePoint Tasks list for showing t
 
 ## Applies to
 
-* [SharePoint Framework](https://docs.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview)
-* [Office 365 tenant](https://docs.microsoft.com/sharepoint/dev/spfx/set-up-your-development-environment)
+* [SharePoint Framework](https://learn.microsoft.com/sharepoint/dev/spfx/sharepoint-framework-overview)
+* [Microsoft 365 tenant](https://learn.microsoft.com/sharepoint/dev/spfx/set-up-your-development-environment)
 
 ## Prerequisites
 
 This web part reads the information from a Tasks list and uses the following OOB columns
+
 * Task Name
 * Assigned To
 * % Complete
@@ -54,14 +48,12 @@ This web part reads the information from a Tasks list and uses the following OOB
 
 The Task list can be chosen using the web part properties (BaseTemplate 171 or 107)
 
-## Solution
+## Contributors
 
-Solution|Author(s)
---------|---------
-react-kanban-board | [Ram Prasad Meenavalli](https://github.com/RamPrasadMeenavalli) ([@ram_meenavalli](https://twitter.com/ram_meenavalli))
-react-kanban-board | [Daniel Westerdale](https://github.com/westerdaled) ([Westerdale Solutions Ltd.](https://westerdale.blog), [@westerdaled](https://twitter.com/westerdaled?s=20))
-react-kanban-board | [Peter Paul Kirschner](https://github.com/petkir) ([@petkir_at](https://twitter.com/petkir_at))
-react-kanban-board | [Alex Terentiev](https://github.com/AJIXuMuK) ([@alexaterentiev](https://twitter.com/alexaterentiev))
+* [Ram Prasad Meenavalli](https://github.com/RamPrasadMeenavalli) 
+* [Daniel Westerdale](https://github.com/westerdaled) 
+* [Peter Paul Kirschner](https://github.com/petkir) 
+* [Alex Terentiev](https://github.com/AJIXuMuK)
 
 ## Version history
 
@@ -71,10 +63,12 @@ Version|Date|Comments
 1.0.1.0|April 21, 2020|Added support for Teams hosts
 2.0.0.0|July 10, 2020| jqwidgets replaced with a custom Kanban Board based on Office UI Component and IE11 Support
 3.0.0.0|October 29, 2021| SPFx 1.13, PnPJS v2, PnP Controls v3
+4.0.0.0|Jun 1, 2024| SPFx 1.19, PnPJS v4, Node 18 (Property-ListPicker and Property-Order not used from @pnp/spfx-property-controls because of an issue )
 
 [Read More about the implementation of this Board](./src/kanban/README.md)
 
 ## Usage
+
 * PNP Placeholder control if not Configured
 * PNP WebpartTitle control  (toggle Show/Hide in property pane)
 * PNP OrderPropertyPane control  (change position of buckets)
@@ -132,4 +126,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 
 
-<img src="https://pnptelemetry.azurewebsites.net/sp-dev-fx-webparts/samples/react-kanban-board" />
+<img src="https://m365-visitor-stats.azurewebsites.net/sp-dev-fx-webparts/samples/react-kanban-board" />

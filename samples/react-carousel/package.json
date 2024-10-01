@@ -44,7 +44,7 @@
   "devDependencies": {
     "@microsoft/rush-stack-compiler-3.3": "0.3.5",
     "@microsoft/rush-stack-compiler-3.7": "0.2.3",
-    "@microsoft/sp-build-web": "1.12.1",
+    "@microsoft/sp-build-web": "1.18.0",
     "@microsoft/sp-module-interfaces": "1.12.1",
     "@microsoft/sp-tslint-rules": "1.12.1",
     "@microsoft/sp-webpart-workbench": "1.12.1",
@@ -59,7 +59,7 @@
     "jest": "^23.6.0",
     "jest-junit": "^6.3.0",
     "typescript": "~3.3.x",
-    "webpack-bundle-analyzer": "^3.3.2"
+    "webpack-bundle-analyzer": "^4.10.2"
   },
   "jest-junit": {
     "output": "temp/test/junit/junit.xml",

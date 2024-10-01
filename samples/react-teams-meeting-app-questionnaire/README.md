@@ -2,20 +2,19 @@
 
 ## Summary
 
-SPFx v1.12.1 support for Microsoft Teams meeting apps development. Questionnaire meeting app provides Pre-meeting app experience for MS Teams meeting attendees to ask the questions related to meeting before the meeting starts.  
+SPFx v1.12.1 and later support for Microsoft Teams meeting apps development. Questionnaire meeting app provides Pre-meeting app experience for MS Teams meeting attendees to ask the questions related to meeting before the meeting starts.  
 
 ![Web Part Preview](./assets/web-part-preview.gif)
 
 The Questionnaire meeting app displays the questions from attendees as pre-meeting app experience.
 ![Questionnaire Preview](./assets/questionnaire-preview.png)
 
-
 ### NPM Packages Used
 
 Below NPM package(s) are used to develop this sample:
 
-1. @pnp/sp (https://pnp.github.io/pnpjs/sp/)
-2. moment (https://www.npmjs.com/package/moment)
+1. @pnp/sp (<https://pnp.github.io/pnpjs/sp/>)
+2. moment (<https://www.npmjs.com/package/moment>)
 
 ### Project setup and important files
 
@@ -48,27 +47,28 @@ spfx-react-teams-meeting-app-questionnaire
 ```
 
 ## Compatibility
-![Compatible with Remote Containers](https://img.shields.io/badge/Remote%20Containers-Compatible-green.svg)
 
-## Compatibility
-![Compatible with Remote Containers](https://img.shields.io/badge/Remote%20Containers-Compatible-green.svg)
+| :warning: Important          |
+|:---------------------------|
+| Every SPFx version is only compatible with specific version(s) of Node.js. In order to be able to build this sample, please ensure that the version of Node on your workstation matches one of the versions listed in this section. This sample will not work on a different version of Node.|
+|Refer to <https://aka.ms/spfx-matrix> for more information on SPFx compatibility.   |
 
-![SPFx 1.12.1](https://img.shields.io/badge/SPFx-1.12.1-green.svg)
-![Node.js v14 | v12 | v10](https://img.shields.io/badge/Node.js-v14%20%7C%20v12%20%7C%20v10-green.svg) 
-![Microsoft Teams](https://img.shields.io/badge/SharePoint%20Online-Compatible-green.svg)
-![Does not work with SharePoint Online](https://img.shields.io/badge/SharePoint%20Online-Incompatible-red.svg)
+![SPFx 1.14](https://img.shields.io/badge/SPFx-1.14-green.svg)
+![Node.js v14 | v12](https://img.shields.io/badge/Node.js-v14%20%7C%20v12-green.svg)
+![Compatible with SharePoint Online](https://img.shields.io/badge/SharePoint%20Online-Compatible-green.svg)
 ![Does not work with SharePoint 2019](https://img.shields.io/badge/SharePoint%20Server%202019-Incompatible-red.svg "SharePoint Server 2019 requires SPFx 1.4.1 or lower")
 ![Does not work with SharePoint 2016 (Feature Pack 2)](https://img.shields.io/badge/SharePoint%20Server%202016%20(Feature%20Pack%202)-Incompatible-red.svg "SharePoint Server 2016 Feature Pack 2 requires SPFx 1.1")
-![Local Workbench Incompatible](https://img.shields.io/badge/Local%20Workbench-Incompatible-red.svg "Needs Teams to work")
-![Hosted Workbench Incmpatible](https://img.shields.io/badge/Hosted%20Workbench-Incompatible-red.svg)
+![Local Workbench Unsupported](https://img.shields.io/badge/Local%20Workbench-Unsupported-red.svg "Local workbench is no longer available as of SPFx 1.13 and above")
+![Hosted Workbench Compatible](https://img.shields.io/badge/Hosted%20Workbench-Compatible-green.svg)
+![Compatible with Remote Containers](https://img.shields.io/badge/Remote%20Containers-Compatible-green.svg)
 
 ## Applies to
 
 - [Microsoft Teams](https://aka.ms/microsoftteams)
 - [SharePoint Framework](https://aka.ms/spfx)
-- [Microsoft 365 tenant](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
+- [Microsoft 365 tenant](https://learn.microsoft.com/sharepoint/dev/spfx/set-up-your-developer-tenant)
 
-> Get your own free development tenant by subscribing to [Microsoft 365 developer program](http://aka.ms/o365devprogram)
+> Get your own free development tenant by subscribing to [Microsoft 365 developer program](https://aka.ms/m365/devprogram)
 
 ## Prerequisites
 
@@ -97,13 +97,13 @@ MeetingID|MeetingID|Single line of text|N|
 
 ### SharePoint deployment
 
->  This sample can also be opened with [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview). Visit https://aka.ms/spfx-devcontainer for further instructions.
+> This sample can also be opened with [VS Code Remote Development](https://code.visualstudio.com/docs/remote/remote-overview). Visit <https://aka.ms/spfx-devcontainer> for further instructions.
 
 - Clone this repo
 - Navigate to the folder with current sample
-- Restore dependencies: `$ npm i`
-- Bundle the solution: `$ gulp bundle --ship`
-- Package the solution: `$ gulp package-solution --ship`
+- Restore dependencies: `npm i`
+- Bundle the solution: `gulp bundle --ship`
+- Package the solution: `gulp package-solution --ship`
 - Locate the solution at `./sharepoint/solution/spfx-ms-teams-questionnaire-meeting-app.sppkg` and upload it to SharePoint tenant app catalog
 
 ![Deploy SPFx solution](./assets/deploy-spfx-solution.png)
@@ -113,21 +113,20 @@ MeetingID|MeetingID|Single line of text|N|
 
 ### MS Teams deployment
 
-- Navigate to `teams` folder and zip the content (2 png files and manifest.json).
+- Navigate to `teams` folder and zip the content (2 `.png` files and `manifest.json`).
 - Open MS Teams.
-- Click `Apps`.
-- Click `Upload a custom app` > `Upload for <tenant>`.
+- Click **Apps**.
+- Click **Upload a custom app** > **Upload for <tenant>**.
 
 ![Deploy to MS Teams](./assets/deploy-to-ms-teams.png)
 
+## Contributors
 
-## Solution
+- [Nanddeep Nachan](https://github.com/nanddeepn)
 
-Solution|Author(s)
---------|---------
-spfx-react-teams-meeting-app-questionnaire|[Nanddeep Nachan](https://github.com/nanddeepn) (https://www.linkedin.com/in/nanddeepnachan/) (SharePoint Consultant, [@NanddeepNachan](https://twitter.com/NanddeepNachan))
-spfx-react-teams-meeting-app-questionnaire|[Ravi Kulkarni](https://www.linkedin.com/in/ravi-kulkarni-a5381723/) (SharePoint Consultant, [@RaviKul16a87](https://twitter.com/RaviKul16a87))
-spfx-react-teams-meeting-app-questionnaire|[Smita Nachan](https://www.linkedin.com/in/smitanachan/) (SharePoint Consultant, [@SmitaNachan](https://twitter.com/SmitaNachan))
+- [Ravi Kulkarni](https://github.com/ravi16a87)
+
+* [Smita Nachan](https://github.com/SmitaNachan)
 
 ## Version history
 
@@ -167,14 +166,13 @@ For questions regarding this sample, [create a new question](https://github.com/
 
 Finally, if you have an idea for improvement, [make a suggestion](https://github.com/pnp/sp-dev-fx-webparts/issues/new?assignees=&labels=Needs%3A+Triage+%3Amag%3A%2Ctype%3Aenhancement%2Csample%3A%20react-teams-meeting-app-questionnaire&template=question.yml&sample=react-teams-meeting-app-questionnaire&authors=@nanddeepn&title=react-teams-meeting-app-questionnaire%20-%20).
 
-
 ## References
 
-- [Getting started with SharePoint Framework](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/set-up-your-developer-tenant)
-- [Building for Microsoft teams](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/build-for-teams-overview)
-- [Apps in Teams meetings](https://docs.microsoft.com/en-us/microsoftteams/platform/apps-in-teams-meetings/teams-apps-in-meetings)
-- [Use Microsoft Graph in your solution](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/web-parts/get-started/using-microsoft-graph-apis)
-- [Publish SharePoint Framework applications to the Marketplace](https://docs.microsoft.com/en-us/sharepoint/dev/spfx/publish-to-marketplace-overview)
+- [Getting started with SharePoint Framework](https://learn.microsoft.com/sharepoint/dev/spfx/set-up-your-developer-tenant)
+- [Building for Microsoft teams](https://learn.microsoft.com/sharepoint/dev/spfx/build-for-teams-overview)
+- [Apps in Teams meetings](https://learn.microsoft.com/microsoftteams/platform/apps-in-teams-meetings/teams-apps-in-meetings)
+- [Use Microsoft Graph in your solution](https://learn.microsoft.com/sharepoint/dev/spfx/web-parts/get-started/using-microsoft-graph-apis)
+- [Publish SharePoint Framework applications to the Marketplace](https://learn.microsoft.com/sharepoint/dev/spfx/publish-to-marketplace-overview)
 - [Microsoft 365 Patterns and Practices](https://aka.ms/m365pnp) - Guidance, tooling, samples and open-source controls for your Microsoft 365 development
 - [PnPjs Configuration](https://pnp.github.io/pnpjs/concepts/configuration/)
 - [Support Microsoft Teams Themes in SharePoint Framework Solutions](https://blog.aterentiev.com/support-microsoft-teams-themes-in) by Alex Terentiev, [@alexaterentiev](https://twitter.com/alexaterentiev)
@@ -183,5 +181,4 @@ Finally, if you have an idea for improvement, [make a suggestion](https://github
 
 **THIS CODE IS PROVIDED *AS IS* WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING ANY IMPLIED WARRANTIES OF FITNESS FOR A PARTICULAR PURPOSE, MERCHANTABILITY, OR NON-INFRINGEMENT.**
 
-
-<img src="https://pnptelemetry.azurewebsites.net/sp-dev-fx-webparts/samples/react-teams-meeting-app-questionnaire" />
+<img src="https://m365-visitor-stats.azurewebsites.net/sp-dev-fx-webparts/samples/react-teams-meeting-app-questionnaire" />
